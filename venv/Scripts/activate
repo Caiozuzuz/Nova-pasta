@@ -38,7 +38,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
+VIRTUAL_ENV="C:\Users\Caio\Nova pasta\venv"
+=======
 VIRTUAL_ENV="D:\python\Carica\Nova-pasta\venv"
+>>>>>>> 3041c854103031f1cc3193d38847d0f78862de4c
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

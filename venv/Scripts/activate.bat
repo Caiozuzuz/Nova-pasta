@@ -8,7 +8,11 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
+<<<<<<< HEAD
+set VIRTUAL_ENV=C:\Users\Caio\Nova pasta\venv
+=======
 set VIRTUAL_ENV=D:\python\Carica\Nova-pasta\venv
+>>>>>>> 3041c854103031f1cc3193d38847d0f78862de4c
 
 if not defined PROMPT set PROMPT=$P$G
 
