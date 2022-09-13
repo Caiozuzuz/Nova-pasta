@@ -33,25 +33,28 @@ for file in os.listdir(BASE_DIR):
         COUNT += 1
       elif split_row[0] == 'ITEM' and split_row[1] == '0':
         COUNT_2 = 0
-      elif COUNT_2 == 0 and COUNT < int(DICT['QTD_ITENS']):
-        COLUM_INDEX = ''
         for item_matrix in split_row:
-          if split_row.index(item_matrix) == 0:
-            COLUM_INDEX = item_matrix
-            DICT[COLUM_INDEX] = []
-          else:
-            DICT[COLUM_INDEX].append(item_matrix)
-          COUNT_2 -= 1
+          if item_matrix != 'ITEM':
+            DICT[item_matrix] = []
+      elif COUNT_2 != sys.maxsize and COUNT_2 < int(DICT['QTD_ITENS']):
+        COLUM_INDEX = ''
+        for item_matrix_2 in range(1,21,1):
+          DICT[str(COUNT_2)].append(split_row[item_matrix_2])
+        COUNT_2 += 1
         COLUM_INDEX = ''
 
       # print(split_row)
     # break
+    
+  COUNT = sys.maxsize
+  COUNT_2 = sys.maxsize
   print()
   print(DICT)
   print()
 
 
+
 # print()
-# print(DICT['VALOR'])
+# print(DICT['1'])
 
   
