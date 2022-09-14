@@ -43,8 +43,7 @@ for file in os.listdir(BASE_DIR):
         COUNT_2 += 1
         COLUM_INDEX = ''
 
-      # print(split_row)
-    # break
+      print(split_row)
     
   COUNT = sys.maxsize
   COUNT_2 = sys.maxsize
@@ -52,9 +51,20 @@ for file in os.listdir(BASE_DIR):
   print(DICT)
   print()
 
+  # inicio do código
 
+  print(DICT['VALOR']) # copiar essa lista
 
-# print()
-# print(DICT['1'])
+  nova_lista = DICT['VALOR'].copy() # reordenar essa lista
+  nova_lista.sort()
+  nova_lista.reverse()
+  print()
+  print(nova_lista)
+  print()
+  print(DICT['VALOR'].index(nova_lista[0])) # te fala o index
+
+  # fim do código
+
+  break
 
   
