@@ -62,6 +62,8 @@ for file in os.listdir(BASE_DIR):
   print(nova_lista)
   print()
   print(DICT['VALOR'].index(nova_lista[0])) # te fala o index
+  print()
+  print(DICT[str(DICT['VALOR'].index(nova_lista[0]))]) # te fala o index
 
   # fim do código
 
