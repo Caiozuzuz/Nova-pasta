@@ -11,6 +11,14 @@ DICT['PESO'] = []
 DICT['VALOR'] = []
 DICT['CAPACIDADES'] = []
 
+def mochila_is_avaliable(obj):
+  for i in range(1,int(DICT['QTD_MOCHILAS'])+1):
+    for item_mochila in DICT['mochila_'+str(i)]:
+      if DICT[str(item_mochila)][DICT['VALOR'].index(obj)]:
+        DICT['mochila_'+str(i)].append(DICT['VALOR'].index(obj))
+        break
+
+
 for file in os.listdir(BASE_DIR):
   with open(BASE_DIR + '\\' + file, 'r') as file:
     my_reader = csv.reader(file, delimiter=',')
@@ -47,26 +55,26 @@ for file in os.listdir(BASE_DIR):
     
   COUNT = sys.maxsize
   COUNT_2 = sys.maxsize
-  print()
-  print(DICT)
-  print()
 
   # inicio do código
 
-  print(DICT['VALOR']) # copiar essa lista
+  for i in range(1,int(DICT['QTD_MOCHILAS'])+1):
+    DICT['mochila_'+str(i)] = []
 
   nova_lista = DICT['VALOR'].copy() # reordenar essa lista
   nova_lista.sort()
   nova_lista.reverse()
-  print()
-  print(nova_lista)
-  print()
-  print(DICT['VALOR'].index(nova_lista[0])) # te fala o index
-  print()
-  print(DICT[str(DICT['VALOR'].index(nova_lista[0]))]) # te fala o index
+
+  for obj in nova_lista:
+    for i in range(1,int(DICT['QTD_MOCHILAS'])+1):
+      if not DICT['mochila_'+str(i)]:
+        DICT['mochila_'+str(i)].append(DICT['VALOR'].index(obj))
+        break
+      else:
+        mochila_is_avaliable(obj)
+        pass
 
   # fim do código
-
   break
 
   
