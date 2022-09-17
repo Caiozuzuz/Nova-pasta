@@ -2,10 +2,14 @@ import os
 from pickle import TRUE
 import sys
 
-def mochila_is_avaliable(obj, len_mochila, DICT):
+def mochila_is_avaliable(obj, DICT):
   COUNT = 0
   for i in range(1,int(DICT['QTD_MOCHILAS'])+1):
+    len_mochila = len(DICT['mochila_'+str(i)])
     for item_mochila in DICT['mochila_'+str(i)]:
+      index_atual = DICT['VALOR'].index(obj)
+      conflito = DICT[str(item_mochila)]
+      posicao = DICT[str(item_mochila)][DICT['VALOR'].index(obj)]
       if int(DICT[str(item_mochila)][DICT['VALOR'].index(obj)]) and len(DICT['mochila_'+str(i)]) > 0:
         COUNT += 1
     
@@ -71,7 +75,7 @@ def resolve_instancia(arq_instancia, arq_solucao):
         DICT['mochila_'+str(i)].append(DICT['VALOR'].index(obj))
         break
       else:
-        if mochila_is_avaliable(obj, len(DICT['mochila_'+str(i)]), DICT):
+        if mochila_is_avaliable(obj, DICT):
           break
   
   for i in range(1,int(DICT['QTD_MOCHILAS'])+1):

@@ -25,9 +25,9 @@ QTD_MOCHILAS;2
 18;['1', '1', '0', '1', '1', '0', '1', '1', '0', '1', '0', '0', '1', '0', '1', '0', '0', '1', '1', '0']
 19;['0', '0', '1', '1', '1', '0', '1', '0', '0', '1', '1', '1', '1', '0', '1', '0', '1', '1', '0', '1']
 mochila_1;[17, 12, 4]
-mochila_2;[8, 16]
+mochila_2;[8, 16, 1]
 peso_mochila_1;211
-valor_mochila_1;4680
-peso_mochila_2;104
-valor_mochila_2;1177
-VALOR_TOTAL;5857
+valor_mochila_1;3556
+peso_mochila_2;154
+valor_mochila_2;1589
+VALOR_TOTAL;5145
