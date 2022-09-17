@@ -1,5 +1,6 @@
 import csv
 import os
+from pickle import TRUE
 import sys
 
 BASE_DIR = 'Instancias\Instancias'
@@ -11,13 +12,22 @@ DICT['PESO'] = []
 DICT['VALOR'] = []
 DICT['CAPACIDADES'] = []
 
-def mochila_is_avaliable(obj):
+def mochila_is_avaliable(obj, len_mochila):
+
+  COUNT = 0
+
   for i in range(1,int(DICT['QTD_MOCHILAS'])+1):
     for item_mochila in DICT['mochila_'+str(i)]:
-      if DICT[str(item_mochila)][DICT['VALOR'].index(obj)]:
-        DICT['mochila_'+str(i)].append(DICT['VALOR'].index(obj))
-        break
-
+      conflito = DICT[str(item_mochila)]
+      index_conflito = DICT['VALOR'].index(obj)
+      valor = DICT[str(item_mochila)][DICT['VALOR'].index(obj)]
+      if int(valor) and len(DICT['mochila_'+str(i)]) > 0:
+        COUNT += 1
+    
+    if len_mochila == COUNT:
+      DICT['mochila_'+str(i)].append(DICT['VALOR'].index(obj))
+      return TRUE
+    COUNT = 0
 
 for file in os.listdir(BASE_DIR):
   with open(BASE_DIR + '\\' + file, 'r') as file:
@@ -71,8 +81,8 @@ for file in os.listdir(BASE_DIR):
         DICT['mochila_'+str(i)].append(DICT['VALOR'].index(obj))
         break
       else:
-        mochila_is_avaliable(obj)
-        pass
+        if mochila_is_avaliable(obj, len(DICT['mochila_'+str(i)])):
+          break
 
   # fim do código
   break
